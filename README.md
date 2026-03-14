@@ -204,7 +204,7 @@ Requirements: Scala installed — [scala-lang.org](https://scala-lang.org)
 
 ```bash
 # Compile
-scalac Petadoption.scala
+scala Petadoption.scala
 
 # Run
 scala Petadoption
