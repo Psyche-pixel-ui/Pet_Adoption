@@ -3,244 +3,404 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🐾 Happy Paws — Pet Adoption Registry | Scalers</title>
+  <title> Happy Paws — Pet Adoption Registry | Scalers</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- ═══════════════════════════════════════════════
-       HEADER — Live stats + branding
-  ═══════════════════════════════════════════════ -->
-  <header>
-    <div class="header-inner">
-      <div class="brand">
-        <div class="brand-logo">🐾 Happy<span>Paws</span></div>
-        <div class="brand-sub">by <strong>Scalers</strong></div>
+  <!-- HEADER -->
+  <header class="am-header">
+    <div class="am-header-inner">
+      <div class="am-brand">
+        <div class="am-brand-icon">🐾</div>
+        <div>
+          <div class="am-brand-name"> HappyPaws</div>
+          <div class="am-brand-sub">by <strong>Scalers</strong> · Adopt Me World</div>
+        </div>
       </div>
-      <div class="stats-bar">
-        <div class="stat-pill"><span class="stat-icon">📊</span>Total<b id="statTotal">0</b></div>
-        <div class="stat-pill"><span class="stat-icon">✅</span>Available<b id="statAvail">0</b></div>
-        <div class="stat-pill"><span class="stat-icon">❤️</span>Adopted<b id="statAdopted">0</b></div>
-        <div class="stat-pill"><span class="stat-icon">💉</span>Vaccinated<b id="statVacc">0</b></div>
+      <div class="am-stats-bar">
+        <div class="am-stat-pill">
+          <span class="am-stat-emoji"></span>
+          <span class="am-stat-label">Total</span>
+          <b id="statTotal">0</b>
+        </div>
+        <div class="am-stat-pill am-stat-avail">
+          <span class="am-stat-emoji"></span>
+          <span class="am-stat-label">Available</span>
+          <b id="statAvail">0</b>
+        </div>
+        <div class="am-stat-pill am-stat-adopted">
+          <span class="am-stat-emoji"></span>
+          <span class="am-stat-label">Adopted</span>
+          <b id="statAdopted">0</b>
+        </div>
+        <div class="am-stat-pill am-stat-vacc">
+          <span class="am-stat-emoji"></span>
+          <span class="am-stat-label">Vaccinated</span>
+          <b id="statVacc">0</b>
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- ═══════════════════════════════════════════════
-       HERO SECTION
-  ═══════════════════════════════════════════════ -->
-  <section class="hero">
-    <div class="hero-content">
-      <div class="hero-badge">🏷️ Scalers Pet Adoption System</div>
-      <h1>Every Pet Deserves<br/><span>a Loving Home</span></h1>
-      <p>Find your perfect companion. Register pets. Change lives — one paw at a time.</p>
-      <div class="hero-actions">
-        <button class="btn-hero-primary" onclick="PetAdoptionRegistry.openAddModal()">➕ Register a Pet</button>
-        <button class="btn-hero-secondary" onclick="scrollToGrid()">🐾 Browse Pets</button>
-      </div>
+  <!-- HERO -->
+  <section class="am-hero">
+    <div class="am-floats" aria-hidden="true">
+      <span class="am-float af1"></span>
+      <span class="am-float af2"></span>
+      <span class="am-float af3"></span>
+      <span class="am-float af4"></span>
+      <span class="am-float af5"></span>
+      <span class="am-float af6"></span>
+      <span class="am-float af7"></span>
+      <span class="am-float af8"></span>
     </div>
-    <div class="hero-paws" aria-hidden="true">🐾</div>
+    <div class="am-cloud am-cloud1"></div>
+    <div class="am-cloud am-cloud2"></div>
+    <div class="am-cloud am-cloud3"></div>
+    <div class="am-hero-content">
+      <div class="am-hero-tag"> Roblox · Adopt Me Style Shelter</div>
+      <h1 class="am-hero-h1">Every Pet Deserves<br/><em>a Loving Home!</em></h1>
+      <p class="am-hero-p">Find your perfect companion · Register pets · Change lives — one paw at a time </p>
+      <div class="am-hero-actions">
+        <button class="am-btn-primary" onclick="PetAdoptionRegistry.openAddModal()"> Register a Pet</button>
+        <button class="am-btn-secondary" onclick="scrollToGrid()">Browse Pets ↓</button>
+      </div>
+
+    </div>
+    <div class="am-hero-wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="#e0f5ff"/>
+      </svg>
+    </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════
-       CONTROLS — Search + Filter + Toggle
-  ═══════════════════════════════════════════════ -->
-  <div class="controls-wrapper">
-    <div class="controls">
-      <div class="search-wrap">
-        <span class="search-icon">🔍</span>
-        <input
-          type="text"
-          id="searchInput"
-          placeholder="Search by name, breed or species…"
-          oninput="PetAdoptionRegistry.renderPets()"
-        />
-        <button class="clear-search" id="clearSearch" onclick="PetAdoptionRegistry.clearSearch()" title="Clear">✕</button>
-      </div>
+  <!-- RARITY BANNER -->
+  <div class="am-rarity-banner">
+    <div class="am-rarity-inner">
+      <span class="am-rarity-label"> Pet Rarities</span>
+      <div class="am-rpill am-r-legendary"> Legendary</div>
+      <div class="am-rpill am-r-mega"> Mega Rare</div>
+      <div class="am-rpill am-r-ultra"> Ultra Rare</div>
+      <div class="am-rpill am-r-rare"> Rare</div>
+      <div class="am-rpill am-r-uncommon"> Uncommon</div>
+      <div class="am-rpill am-r-common"> Common</div>
+    </div>
+  </div>
 
-      <div class="filter-group">
-        <button class="filter-btn active" data-filter="All"    onclick="PetAdoptionRegistry.setFilter('All',this)">🐾 All</button>
-        <button class="filter-btn"        data-filter="Dog"    onclick="PetAdoptionRegistry.setFilter('Dog',this)">🐶 Dogs</button>
-        <button class="filter-btn"        data-filter="Cat"    onclick="PetAdoptionRegistry.setFilter('Cat',this)">🐱 Cats</button>
-        <button class="filter-btn"        data-filter="Rabbit" onclick="PetAdoptionRegistry.setFilter('Rabbit',this)">🐰 Rabbits</button>
-        <button class="filter-btn"        data-filter="Fish"   onclick="PetAdoptionRegistry.setFilter('Fish',this)">🐟 Fish</button>
+  <!-- CONTROLS -->
+  <div class="am-controls-wrapper">
+    <div class="am-controls-inner" id="petSection">
+      <div class="am-search-wrap">
+        <span class="am-search-icon"></span>
+        <input type="text" id="searchInput" class="am-search-input"
+               placeholder="Search by name, breed or species…"
+               oninput="PetAdoptionRegistry.renderPets()" />
+        <button class="am-clear-btn" id="clearSearch"
+                onclick="PetAdoptionRegistry.clearSearch()" title="Clear">✕</button>
       </div>
-
-      <div class="toggle-group">
-        <button class="toggle-btn" id="toggleAdoptedBtn" onclick="PetAdoptionRegistry.toggleAdopted()">❤️ Show Adopted</button>
-        <button class="toggle-btn vacc-toggle" id="toggleVaccBtn" onclick="PetAdoptionRegistry.toggleVacc()">💉 Vaccinated Only</button>
+      <div class="am-filter-group">
+        <button class="am-filter-btn active" onclick="PetAdoptionRegistry.setFilter('All',this)">All</button>
+        <button class="am-filter-btn" onclick="PetAdoptionRegistry.setFilter('Dog',this)">Dogs</button>
+        <button class="am-filter-btn" onclick="PetAdoptionRegistry.setFilter('Cat',this)">Cats</button>
+        <button class="am-filter-btn" onclick="PetAdoptionRegistry.setFilter('Rabbit',this)">Rabbits</button>
+        <button class="am-filter-btn" onclick="PetAdoptionRegistry.setFilter('Fish',this)">Fish</button>
+      </div>
+      <div class="am-toggle-group">
+        <button class="am-toggle-btn" id="toggleAdoptedBtn" onclick="PetAdoptionRegistry.toggleAdopted()">Show Adopted</button>
+        <button class="am-toggle-btn am-vacc-toggle" id="toggleVaccBtn" onclick="PetAdoptionRegistry.toggleVacc()">Vaccinated Only</button>
       </div>
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════════════════
-       PET GRID
-  ═══════════════════════════════════════════════ -->
-  <main class="main" id="petSection">
-    <div class="section-header">
-      <h2 class="section-title" id="sectionLabel">Available Pets</h2>
-      <span class="count-badge" id="petCount">0</span>
+  <!-- PET GRID -->
+  <main class="am-main">
+    <div class="am-grid-header">
+      <h2 class="am-grid-title" id="sectionLabel">Available Pets</h2>
+      <span class="am-count-badge" id="petCount">0</span>
     </div>
-    <div class="pet-grid" id="petGrid"></div>
+    <div class="am-pet-grid" id="petGrid"></div>
   </main>
 
-
-  <!-- ═══════════════════════════════════════════════
-       FOOTER
-  ═══════════════════════════════════════════════ -->
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-brand">🐾 HappyPaws <span>by Scalers</span></div>
-      <div class="footer-note">Built with Scala logic · Every pet deserves a home 💛</div>
+  <!-- FOOTER -->
+  <footer class="am-footer">
+    <div class="am-footer-clouds" aria-hidden="true"></div>
+    <div class="am-footer-inner">
+      <div class="am-footer-brand">
+        <span></span> HappyPaws <span class="am-footer-by">by Scalers</span>
+      </div>
+      <div class="am-footer-center">
+        <span class="am-robux-badge"> ROBUX-FREE</span>
+        <span>Every adoption is completely free — just love &amp; a good home!</span>
+      </div>
+      <div class="am-footer-note">Built with Scala · Adopt Me World </div>
     </div>
   </footer>
 
-  <!-- ═══════════════════════════════════════════════
-       MODAL: REGISTER NEW PET
-  ═══════════════════════════════════════════════ -->
-  <div class="modal-overlay" id="addModal" onclick="overlayClose(event,'addModal')">
-    <div class="modal">
-      <div class="modal-header">
-        <h2>➕ Register a New Pet</h2>
-        <button class="modal-close" onclick="closeModal('addModal')">✕</button>
+  <!-- MODAL: REGISTER NEW PET -->
+  <div class="am-modal-overlay" id="addModal" onclick="overlayClose(event,'addModal')">
+    <div class="am-modal">
+      <div class="am-modal-header">
+        <h2>Register a New Pet</h2>
+        <button class="am-modal-close" onclick="closeModal('addModal')">✕</button>
       </div>
-      <p class="modal-sub">Fill in the details to add a pet to the registry.</p>
-
-      <div class="form-section-label">🐾 Pet Information</div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Pet Name <span class="req">*</span></label>
+      <p class="am-modal-sub">Fill in the details to add a pet to the shelter!</p>
+      <div class="am-form-label-section">Pet Information</div>
+      <div class="am-form-row">
+        <div class="am-form-group">
+          <label>Pet Name <span class="am-req">*</span></label>
           <input type="text" id="newName" placeholder="e.g. Buddy" />
         </div>
-        <div class="form-group">
-          <label>Species <span class="req">*</span></label>
+        <div class="am-form-group">
+          <label>Species <span class="am-req">*</span></label>
           <select id="newSpecies">
-            <option value="Dog">🐶 Dog</option>
-            <option value="Cat">🐱 Cat</option>
-            <option value="Rabbit">🐰 Rabbit</option>
-            <option value="Fish">🐟 Fish</option>
-            <option value="Other">🐾 Other</option>
+            <option value="Dog">Dog</option>
+            <option value="Cat">Cat</option>
+            <option value="Rabbit">Rabbit</option>
+            <option value="Fish">Fish</option>
+            <option value="Other">Other</option>
           </select>
         </div>
       </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Breed <span class="req">*</span></label>
+      <div class="am-form-row">
+        <div class="am-form-group">
+          <label>Breed <span class="am-req">*</span></label>
           <input type="text" id="newBreed" placeholder="e.g. Golden Retriever" />
         </div>
-        <div class="form-group">
+        <div class="am-form-group">
           <label>Age (years)</label>
           <input type="number" id="newAge" min="0" max="30" value="1" />
         </div>
       </div>
-      <div class="form-row">
-        <div class="form-group">
+      <div class="am-form-row">
+        <div class="am-form-group">
           <label>Gender</label>
           <select id="newGender">
             <option value="Male">Male</option>
             <option value="Female">Female</option>
           </select>
         </div>
-        <div class="form-group">
+        <div class="am-form-group">
           <label>Vaccinated?</label>
           <select id="newVaccinated">
-            <option value="true">💉 Vaccinated</option>
-            <option value="false">❌ Not Vaccinated</option>
+            <option value="true">Vaccinated</option>
+            <option value="false">Not Vaccinated</option>
           </select>
         </div>
       </div>
-      <div class="form-group">
-        <label>Description <span class="req">*</span></label>
+      <div class="am-form-group">
+        <label>Description <span class="am-req">*</span></label>
         <textarea id="newDesc" rows="3" placeholder="Tell us about this pet's personality…"></textarea>
       </div>
-
-      <div class="modal-actions">
-        <button class="btn-cancel" onclick="closeModal('addModal')">Cancel</button>
-        <button class="btn-confirm" onclick="PetAdoptionRegistry.addPet()">✅ Register Pet</button>
+      <div class="am-form-group">
+        <label>Pet Photo <span class="am-opt">(optional)</span></label>
+        <label class="am-photo-label" for="newImage">
+          <span id="newImageLabel">Choose a photo…</span>
+        </label>
+        <input type="file" id="newImage" accept="image/*" style="display:none"
+               onchange="PetAdoptionRegistry.previewImage(this)" />
+        <div id="newImagePreviewWrap" style="display:none; margin-top:10px;">
+          <img id="newImagePreview" style="width:100%; max-height:200px; object-fit:cover; border-radius:16px; display:none;" alt="Preview" />
+        </div>
+      </div>
+      <div class="am-modal-actions">
+        <button class="am-btn-cancel" onclick="closeModal('addModal')">Cancel</button>
+        <button class="am-btn-confirm" onclick="PetAdoptionRegistry.addPet()">Register Pet</button>
       </div>
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════════════════
-       MODAL: ADOPT A PET
-  ═══════════════════════════════════════════════ -->
-  <div class="modal-overlay" id="adoptModal" onclick="overlayClose(event,'adoptModal')">
-    <div class="modal modal-wide">
-      <div class="modal-header">
-        <h2>❤️ Adopt a Pet</h2>
-        <button class="modal-close" onclick="closeModal('adoptModal')">✕</button>
+  <!-- MODAL: ADOPT A PET -->
+  <div class="am-modal-overlay" id="adoptModal" onclick="overlayClose(event,'adoptModal')">
+    <div class="am-modal am-modal-wide">
+      <div class="am-modal-header">
+        <h2>Adopt a Pet!</h2>
+        <button class="am-modal-close" onclick="closeModal('adoptModal')">✕</button>
       </div>
-      <p class="modal-sub">Please complete your details to proceed with adoption.</p>
-
+      <p class="am-modal-sub">Complete your details to give this pet a forever home!</p>
       <div id="adoptPetPreview"></div>
-
-      <div class="form-section-label">👤 Adopter Information</div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Full Name <span class="req">*</span></label>
+      <div class="am-form-label-section">Adopter Information</div>
+      <div class="am-form-row">
+        <div class="am-form-group">
+          <label>Full Name <span class="am-req">*</span></label>
           <input type="text" id="adopterFullname" placeholder="e.g. Juan dela Cruz" />
         </div>
-        <div class="form-group">
-          <label>Contact Number <span class="req">*</span></label>
+        <div class="am-form-group">
+          <label>Contact Number <span class="am-req">*</span></label>
           <input type="tel" id="adopterContact" placeholder="e.g. 09XXXXXXXXX" />
         </div>
       </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Email Address <span class="req">*</span></label>
+      <div class="am-form-row">
+        <div class="am-form-group">
+          <label>Email Address <span class="am-req">*</span></label>
           <input type="email" id="adopterEmail" placeholder="e.g. juan@email.com" />
         </div>
-        <div class="form-group">
+        <div class="am-form-group">
           <label>Date of Birth</label>
           <input type="date" id="adopterDob" />
         </div>
       </div>
-      <div class="form-group">
-        <label>Complete Address <span class="req">*</span></label>
+      <div class="am-form-group">
+        <label>Complete Address <span class="am-req">*</span></label>
         <input type="text" id="adopterAddress" placeholder="House No., Street, Barangay, City, Province" />
       </div>
-      <div class="form-row">
-        <div class="form-group">
+      <div class="am-form-row">
+        <div class="am-form-group">
           <label>Occupation</label>
           <input type="text" id="adopterOccupation" placeholder="e.g. Teacher" />
         </div>
-        <div class="form-group">
+        <div class="am-form-group">
           <label>Living Situation</label>
           <select id="adopterLiving">
-            <option value="House">🏡 House</option>
-            <option value="Apartment/Condo">🏢 Apartment / Condo</option>
-            <option value="Farm">🌾 Farm</option>
+            <option value="House">House</option>
+            <option value="Apartment/Condo">Apartment / Condo</option>
+            <option value="Farm">Farm</option>
           </select>
         </div>
       </div>
-      <div class="form-group">
+      <div class="am-form-group">
         <label>Reason for Adopting</label>
         <textarea id="adopterReason" rows="2" placeholder="Why do you want to adopt this pet?"></textarea>
       </div>
-
-      <div class="modal-actions">
-        <button class="btn-cancel" onclick="closeModal('adoptModal')">Cancel</button>
-        <button class="btn-confirm adopt-confirm" onclick="PetAdoptionRegistry.confirmAdopt()">🎉 Confirm Adoption</button>
+      <div class="am-modal-actions">
+        <button class="am-btn-cancel" onclick="closeModal('adoptModal')">Cancel</button>
+        <button class="am-btn-confirm am-btn-adopt" onclick="PetAdoptionRegistry.confirmAdopt()">🎉 Confirm Adoption!</button>
       </div>
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════════════════
-       MODAL: PET DETAIL VIEW
-  ═══════════════════════════════════════════════ -->
-  <div class="modal-overlay" id="detailModal" onclick="overlayClose(event,'detailModal')">
-    <div class="modal modal-wide" id="detailContent"></div>
+  <!-- MODAL: PET DETAIL -->
+  <div class="am-modal-overlay" id="detailModal" onclick="overlayClose(event,'detailModal')">
+    <div class="am-modal am-modal-wide" id="detailContent"></div>
   </div>
 
-  <!-- ═══════════════════════════════════════════════
-       TOAST NOTIFICATION
-  ═══════════════════════════════════════════════ -->
-  <div class="toast" id="toast"></div>
+  <div class="am-toast" id="toast"></div>
+  <script src="Petadoption.js"></script>
+  <script>
+    // Rarity assignment per pet id
+    const RARITIES = [
+      { label:' Legendary', cls:'rarity-legendary' },
+      { label:' Mega Rare',  cls:'rarity-mega'     },
+      { label:' Ultra Rare', cls:'rarity-ultra'    },
+      { label:' Rare',       cls:'rarity-rare'     },
+      { label:' Uncommon',   cls:'rarity-uncommon' },
+      { label:' Common',     cls:'rarity-common'   },
+    ];
 
-  <!-- Scripts loaded in order: data first, then app logic -->
-  <script src="Petadaption.js"></script>
+    Display.buildPetCard = function(pet, index) {
+      const rarity = RARITIES[index % RARITIES.length];
+      const imgSrc = pet.image || Display.fallbackAvatar(pet.species);
+      const youngBadge = pet.age <= 2 ? `<span class="am-young-tag">Young</span>` : '';
+      const vaccBadge  = pet.vaccinated
+        ? `<span class="am-vacc-tag am-vacc-yes">Vaccinated</span>`
+        : `<span class="am-vacc-tag am-vacc-no">Not Vacc.</span>`;
+      const footer = pet.isAdopted
+        ? `<span class="am-status-tag am-adopted">Adopted</span>
+           <span class="am-adopted-by">by ${pet.adoptedBy}</span>`
+        : `<span class="am-status-tag am-available">Available</span>
+           <button class="am-adopt-btn"
+             onclick="event.stopPropagation();PetAdoptionRegistry.openAdoptModal(${pet.id})">
+             Adopt Me! 
+           </button>`;
+      return `
+        <div class="am-pet-card ${rarity.cls}" style="animation-delay:${index*0.06}s"
+             onclick="PetAdoptionRegistry.openDetailModal(${pet.id})">
+          <div class="am-card-shine"></div>
+          <div class="am-card-rarity-tag">${rarity.label}</div>
+          <div class="am-card-photo-wrap">
+            <img class="am-card-photo" src="${imgSrc}" alt="${pet.name}" loading="lazy"
+                 onerror="this.src='${Display.fallbackAvatar(pet.species)}'"/>
+            <div class="am-card-photo-overlay">
+              ${youngBadge}
+              <span class="am-card-id">#${pet.id}</span>
+            </div>
+          </div>
+          <div class="am-card-body">
+            <div class="am-card-top-row">
+              <div class="am-card-name">${pet.name}</div>
+              ${vaccBadge}
+            </div>
+            <div class="am-card-meta">${pet.species} · ${pet.breed}</div>
+            <div class="am-card-meta">${pet.age} yr(s) · ${pet.gender}</div>
+            <div class="am-card-desc">${pet.desc}</div>
+            <div class="am-card-footer">${footer}</div>
+          </div>
+        </div>`;
+    };
+
+    // Override detail modal to match theme
+    const _origDetail = PetAdoptionRegistry.openDetailModal.bind(PetAdoptionRegistry);
+    PetAdoptionRegistry.openDetailModal = function(id) {
+      const pet = PetRegistry.findById(id);
+      if (!pet) return;
+      const imgSrc = pet.image || Display.fallbackAvatar(pet.species);
+      const vaccStatus = pet.vaccinated
+        ? `<span style="color:#16a34a;font-weight:800">Vaccinated</span>`
+        : `<span style="color:#dc2626;font-weight:800">Not Vaccinated</span>`;
+      const statusTag = pet.isAdopted
+        ? `<span class="am-status-tag am-adopted">Adopted by ${pet.adoptedBy}</span>`
+        : `<span class="am-status-tag am-available">Available for Adoption</span>`;
+      const adopterSection = (pet.isAdopted && pet.adopterDetails)
+        ? Display.buildAdopterDetails(pet.adopterDetails) : '';
+      const adoptBtn = !pet.isAdopted
+        ? `<button class="am-btn-confirm am-btn-adopt"
+             onclick="closeModal('detailModal');PetAdoptionRegistry.openAdoptModal(${pet.id})">
+             Adopt ${pet.name}
+           </button>` : '';
+      document.getElementById('detailContent').innerHTML = `
+        <div class="am-modal-header">
+          <h2>${Display.emoji(pet.species)} ${pet.name}</h2>
+          <button class="am-modal-close" onclick="closeModal('detailModal')">✕</button>
+        </div>
+        <p class="am-modal-sub">Pet ID #${pet.id} · ${pet.species}</p>
+        <div class="am-detail-photo-wrap">
+          <img class="am-detail-photo" src="${imgSrc}" alt="${pet.name}"
+               onerror="this.src='${Display.fallbackAvatar(pet.species)}'"/>
+        </div>
+        <div class="am-detail-grid">
+          <div class="am-detail-item"><div class="am-detail-label">Breed</div><div class="am-detail-value">${pet.breed}</div></div>
+          <div class="am-detail-item"><div class="am-detail-label">Age</div><div class="am-detail-value">${pet.age} yr(s)${pet.age<=2?' · Young':''}</div></div>
+          <div class="am-detail-item"><div class="am-detail-label">Gender</div><div class="am-detail-value">${pet.gender}</div></div>
+          <div class="am-detail-item"><div class="am-detail-label">Vaccination</div><div class="am-detail-value">${vaccStatus}</div></div>
+          <div class="am-detail-item am-detail-full"><div class="am-detail-label">About</div><div class="am-detail-value">${pet.desc}</div></div>
+          <div class="am-detail-item am-detail-full"><div class="am-detail-label">Status</div><div class="am-detail-value">${statusTag}</div></div>
+        </div>
+        ${adopterSection}
+        <div class="am-modal-actions">
+          <button class="am-btn-cancel" onclick="closeModal('detailModal')">Close</button>
+          ${adoptBtn}
+        </div>`;
+      openModal('detailModal');
+    };
+
+    // Override adopt preview to match theme
+    const _origAdopt = PetAdoptionRegistry.openAdoptModal.bind(PetAdoptionRegistry);
+    PetAdoptionRegistry.openAdoptModal = function(id) {
+      const pet = PetRegistry.findById(id);
+      if (!pet || pet.isAdopted) return;
+      this.adoptingId = id;
+      ['adopterFullname','adopterContact','adopterEmail','adopterDob',
+       'adopterAddress','adopterOccupation','adopterReason']
+        .forEach(fid => document.getElementById(fid).value = '');
+      document.getElementById('adopterLiving').value = 'House';
+      const imgSrc = pet.image || Display.fallbackAvatar(pet.species);
+      document.getElementById('adoptPetPreview').innerHTML = `
+        <div class="am-adopt-preview">
+          <img class="am-adopt-preview-photo" src="${imgSrc}" alt="${pet.name}"
+               onerror="this.src='${Display.fallbackAvatar(pet.species)}'"/>
+          <div>
+            <div class="am-adopt-preview-name">${pet.name}</div>
+            <div class="am-adopt-preview-meta">
+              ${pet.species} · ${pet.breed} · ${pet.age} yr(s) · ${pet.gender}
+              · ${pet.vaccinated ? 'Vaccinated' : 'Not Vaccinated'}
+            </div>
+          </div>
+        </div>`;
+      openModal('adoptModal');
+    };
+  </script>
 </body>
 </html>
